@@ -25,18 +25,16 @@ class CreateResource extends React.Component {
             <Modal.Content>
                 <Modal.Description>
                     <Header>Create new Resource</Header>
-                    <Form.Group>
+                    <Form>
                         <Form.Input label='Picture' placeholder='Picture' name='picture' onChange={this.handleChange} />
                         <Form.Input label='Name' placeholder='name' name='name' onChange={this.handleChange} />
                         <Form.Input label='Value' placeholder='value' name='value' onChange={this.handleChange} />
                         <Form.TextArea label='Description' placeholder='description' name='description' onChange={this.handleChange} />
                         <Form.Select label='Status' options={resourcesStatus} placeholder='status' name='status' onChange={this.handleChange} />
-                    </Form.Group>
+                        <Form.Button onClick={this.pushResource}>Submit</Form.Button>
+                    </Form>
                 </Modal.Description>
             </Modal.Content>
-            <Modal.Actions>
-                <Form.Button onClick={this.pushResource}>Submit</Form.Button>
-            </Modal.Actions>
         </Modal>
     };
 }
