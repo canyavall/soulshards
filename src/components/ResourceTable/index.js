@@ -2,18 +2,16 @@
 import React from 'react';
 import { style } from './style';
 
-//Components
-import ResourceItem from '../ResourceItem';
-
-
 //Material Ui
 import {Table} from 'semantic-ui-react';
 
+
+
 const Resource = (props) => {
     return <div style={ style.wrapper }>
-                <Table celled padded>
+                <Table celled padded selectable>
                     <Table.Header>
-                        <Table.Row>
+                        <Table.Row >
                             <Table.HeaderCell>Picture</Table.HeaderCell>
                             <Table.HeaderCell>Name</Table.HeaderCell>
                             <Table.HeaderCell>Description</Table.HeaderCell>
@@ -23,7 +21,13 @@ const Resource = (props) => {
                     </Table.Header>
                     <Table.Body>
                         { Object.keys(props.resources).map(function(keyName, keyIndex) {
-                            return < ResourceItem key={keyName} resource={props.resources[keyName]}/>
+                            return  <Table.Row key={keyName} onClick={() => props.handleSelectedRow(keyName)}>
+                                        <Table.Cell>{props.resources[keyName].picture}</Table.Cell>
+                                        <Table.Cell>{props.resources[keyName].name}</Table.Cell>
+                                        <Table.Cell>{props.resources[keyName].description}</Table.Cell>
+                                        <Table.Cell>{props.resources[keyName].value}</Table.Cell>
+                                        <Table.Cell>{props.resources[keyName].status}</Table.Cell>
+                                    </Table.Row>
                             })
                         }
                     </Table.Body>

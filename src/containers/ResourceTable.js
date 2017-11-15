@@ -5,13 +5,21 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty  } from 'react-redux-firebase';
 
 //Components & Containers
-import ResourceComponent from '../components/ResourceTable';
+import ResourceTableComponent from '../components/ResourceTable';
+import ResourceAdd from '../components/ResourceAdd';
+import ResourceRemove from '../components/ResourceRemove'
 
 //Semantic UI
 import { Dimmer, Loader, Segment} from 'semantic-ui-react'
 
-
 class Resource extends React.Component {
+    state = {
+        selectedRow: false
+    };
+
+    handleSelectedRow = (e) => {
+        this.setState({selectedRow: e})
+    }
 
     render () {
         if (!isLoaded(this.props.resources))
@@ -21,15 +29,24 @@ class Resource extends React.Component {
                         </Dimmer>
                     </Segment>);
         if (isEmpty(this.props.resources)) return <div>'Empty'</div>;
-        return <ResourceComponent resources={this.props.resources}/>
+        return  <div>
+                    <ResourceAdd />
+                    <ResourceRemove selectedRow={this.state.selectedRow}/>
+                    <ResourceTableComponent resources={this.props.resources}
+                                            handleSelectedRow ={this.handleSelectedRow}
+                                            selectedRow={this.state.selectedRow}
+                    />
+                </div>
     }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        resources: state.firebase.data.resources
+    };
 }
 
 export default compose(
     firebaseConnect(['resources']),
-    connect(
-        (state) => ({
-            resources: state.firebase.data.resources
-        })
-    )
+    connect(mapStateToProps)
 )(Resource)
