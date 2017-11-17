@@ -18,6 +18,7 @@ const ResourceFormTemplate = (props) => {
     const submitButton = (!props.resourceEditFlag) ?
         <Form.Button type="button" onClick={props.pushResource}>Submit</Form.Button> :
         <Form.Button type="button" onClick={props.editResource}>Submit</Form.Button>
+
     //We need the resource before printing
     if (!props.resource) return  "";
 
@@ -66,7 +67,7 @@ const ResourceFormTemplate = (props) => {
                                      required
                         />
                         <Form.Group inline>
-                            <Form.Button type="button" onClick={props.pushResource}>Submit</Form.Button>
+                            { submitButton }
                             <Form.Button type="button" onClick={props.modalHandleClose}>Cancel</Form.Button>
                         </Form.Group>
                     </Form>
