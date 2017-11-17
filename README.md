@@ -5,7 +5,8 @@ Actually, only the tab resources is working and we can created delete and edit r
 To run it:
  - Create a firebase account  with the table resources inside
  - create the file fbConfig.js with this configurations:
- ``` export const fbConfig = {
+ ```
+  export const fbConfig = {
      apiKey: "******************************",
      authDomain: "******************************",
      databaseURL: "******************************",
