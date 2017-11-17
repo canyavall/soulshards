@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty  } from 'react-redux-firebase';
 
 //Components & Containers
-import ResourceTableComponent from '../components/ResourceTable';
-import ResourceAdd from '../components/ResourceAdd';
-import ResourceRemove from '../components/ResourceRemove'
+import ResourceTableComponent from './template/index';
+import ResourceForm from '../ResourceForm/ResourceForm';
+import ResourceRemove from '../ResourceRemove/ResourceRemove'
 
 //Semantic UI
 import { Dimmer, Loader, Segment} from 'semantic-ui-react'
@@ -30,7 +30,11 @@ class Resource extends React.Component {
                     </Segment>);
         if (isEmpty(this.props.resources)) return <div>'Empty'</div>;
         return  <div>
-                    <ResourceAdd />
+                    <ResourceForm />
+                    <ResourceForm resourceEditFlag={true}
+                                  resourceToEdit={this.props.resources[this.state.selectedRow]}
+                                  resourceToEditId={this.state.selectedRow}
+                    />
                     <ResourceRemove selectedRow={this.state.selectedRow}/>
                     <ResourceTableComponent resources={this.props.resources}
                                             handleSelectedRow ={this.handleSelectedRow}

@@ -2,8 +2,8 @@
 import React from 'react';
 
 //Components & Containers
-import MenuContainer from '../containers/Menu';
-import HomeContainer from '../containers/Home';
+import MenuContainer from '../components/Menu/Menu';
+import HomeContainer from '../components/Home/Home';
 
 //utils
 import { menuStyle, containerStyle, mainStyle } from "./style";

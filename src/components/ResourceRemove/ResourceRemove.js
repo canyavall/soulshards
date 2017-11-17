@@ -11,7 +11,7 @@ class ResourceRemove extends React.Component {
 
     //Check validation and save of show validation error
     deleteResource = (selectedRow) => {
-        console.log("delete: ", selectedRow)
+        this.props.firebase.remove(`resources/${selectedRow}`)
     };
 
     render () {

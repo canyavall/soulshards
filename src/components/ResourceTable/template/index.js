@@ -5,9 +5,8 @@ import { style } from './style';
 //Material Ui
 import {Table} from 'semantic-ui-react';
 
-
-
 const Resource = (props) => {
+    const selected = props.selectedRow;
     return <div style={ style.wrapper }>
                 <Table celled padded selectable>
                     <Table.Header>
@@ -21,7 +20,7 @@ const Resource = (props) => {
                     </Table.Header>
                     <Table.Body>
                         { Object.keys(props.resources).map(function(keyName, keyIndex) {
-                            return  <Table.Row key={keyName} onClick={() => props.handleSelectedRow(keyName)}>
+                            return  <Table.Row key={keyName} onClick={() => props.handleSelectedRow(keyName)} active={keyName === selected}>
                                         <Table.Cell>{props.resources[keyName].picture}</Table.Cell>
                                         <Table.Cell>{props.resources[keyName].name}</Table.Cell>
                                         <Table.Cell>{props.resources[keyName].description}</Table.Cell>

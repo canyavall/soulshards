@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Components & Containers
-import HomeComponent from '../components/Home';
+import HomeComponent from './template/index';
 
 
 class Home extends React.Component {

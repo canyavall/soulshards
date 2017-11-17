@@ -5,12 +5,11 @@
   "dependencies": {
     "firebase": "^4.6.0",
     "install": "^0.10.1",
-    "lodash": "^4.17.4",
     "npm": "^5.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
-    "react-redux-firebase": "^2.0.0-beta.16",
+    "react-redux-firebase": "^2.0.0-beta.17",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
