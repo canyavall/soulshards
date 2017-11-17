@@ -22,3 +22,5 @@ yarn-error.log*
 
 fbConfig.js
 /.idea
+.idea
+src/utils/fbConfig.js
