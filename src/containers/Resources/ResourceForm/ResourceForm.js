@@ -1,38 +1,46 @@
 //Main
 import React from 'react';
-import { withFirebase } from 'react-redux-firebase'
+import { withFirebase } from 'react-redux-firebase';
 
 // Templates
-import ResourceFormTemplate from './template/index';
+import ResourceFormTemplate from './template/ResourceFormTemplate';
+
+//Constants
+const initialResource = {
+    picture: '',
+    value: '',
+    name: '',
+    description: '',
+    status: ''
+};
 
 class ResourceForm extends React.Component {
-    state = {
-        resource: {
-            picture: '',
-            value: '',
-            name: '',
-            description: '',
-            status: ''
-        },
-        modal: false,
-        warnings: {
-            warningPicture: false,
-            warningValue: false,
-            warningName: false,
-            warningStatus: false
-        }
-    };
+    constructor(props) {
+        super(props);
+        const resourceToEdit = (this.props.resourceEditFlag) ? this.props.resourceToEdit : initialResource;
+        this.state = {
+            resource: resourceToEdit,
+            modal: false,
+            warnings: {
+                warningPicture: false,
+                warningValue: false,
+                warningName: false,
+                warningStatus: false
+            }
+        };
+    }
+
 
     //Handle any form change
     handleChange = (e, result) => {
-        let newState = this.state.resource;
+        let newState = {...this.state.resource};
         newState[result.name] = result.value;
         this.setState({resource: newState });
     };
 
     //Checks the form
     formValidation = () => {
-        let newState = this.state.warnings;
+        let newState = {...this.state.warnings};
         newState.warningPicture = !this.state.resource.picture;
         newState.warningValue = !this.state.resource.value;
         newState.warningName = !this.state.resource.name;

@@ -6,7 +6,7 @@ import {Button, Modal, Header, Form} from 'semantic-ui-react';
 
 
 //Constants
-import { resourcesStatus } from '../../../utils/gameConstants';
+import { resourcesStatus } from '../../../../utils/gameConstants';
 
 const ResourceFormTemplate = (props) => {
 

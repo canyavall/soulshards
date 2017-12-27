@@ -3,7 +3,7 @@ import React from 'react';
 
 //Components & Containers
 import MenuContainer from '../components/Menu/Menu';
-import ResourceTable from '../components/ResourceTable/ResourceTable';
+import ResourceTable from '../containers/Resources/ResourceTable/ResourceTable';
 
 //utils
 import { menuStyle, containerStyle, mainStyle } from "./style";

@@ -6,8 +6,6 @@ import { withFirebase } from 'react-redux-firebase'
 import {Button} from 'semantic-ui-react';
 
 class ResourceRemove extends React.Component {
-    state = {
-    };
 
     //Check validation and save of show validation error
     deleteResource = (selectedRow) => {

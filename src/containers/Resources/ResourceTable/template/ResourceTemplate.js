@@ -5,7 +5,7 @@ import { style } from './style';
 //Material Ui
 import {Table} from 'semantic-ui-react';
 
-const Resource = (props) => {
+const ResourceTemplate = (props) => {
     const selected = props.selectedRow;
     return <div style={ style.wrapper }>
                 <Table celled padded selectable>
@@ -34,4 +34,4 @@ const Resource = (props) => {
             </div>
 }
 
-export default Resource;
+export default ResourceTemplate;
