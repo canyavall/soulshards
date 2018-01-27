@@ -12,11 +12,13 @@ import 'semantic-ui-css/semantic.min.css';
 //routes
 import Home from './routes/Home';
 import Resource from './routes/Resource';
+import Login from './routes/Login';
 
 ReactDOM.render(
     <Provider store = {store}>
         <Router>
             <Switch>
+                <Route exact path="/login" component={ Login } />
                 <Route exact path="/" component={ Home } />
                 <Route exact path="/home" component={ Home } />
                 <Route exact path="/resource" component={ Resource } />
